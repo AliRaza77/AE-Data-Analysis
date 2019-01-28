@@ -3,13 +3,14 @@ clear all
 clc
 %% Parameters
 
-Peak_Tolerance = 200;
+Peak_Tolerance = 0.03;
 Time_Tolerance = 950;
 Highlight_Peaks = 1;
 Show_Graph = 1;
 Parametric = 1;
+Initial_Cycle = 111651;
 
-%%
+%% Processing
 PP=0;
 if Parametric == 1
     PP = 8;
@@ -21,6 +22,8 @@ end
 file1=uigetfile('*.txt');
 data=readtable(file1);
 TimeSet=data(:,1);
+FileSet=data(:,3);
+FileSet=table2array(FileSet);
 T1=table2array(TimeSet);
 P1=data(:,PP);
 P1A=table2array(P1);
@@ -63,6 +66,10 @@ plot(X_axis,Y_axis,'-b');
  end
  
  P_data = f_data(locs,:);
+ End_Cycle = Initial_Cycle + Cycles;
+ Cycle_Array = [Initial_Cycle:(End_Cycle-1)];
+ FileSet=FileSet(locs);
+ P_data = [P_data,Cycle_Array',FileSet];
  
  %% Cleaning
  
