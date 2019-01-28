@@ -7,7 +7,7 @@ Peak_Tolerance = 0.03;
 Time_Tolerance = 950;
 Highlight_Peaks = 1;
 Show_Graph = 1;
-Parametric = 1;
+Parametric = 3;
 Initial_Cycle = 111651;
 
 %% Processing
@@ -16,6 +16,10 @@ if Parametric == 1
     PP = 8;
 elseif Parametric == 2
     PP = 9;
+elseif Parametric == 3
+    PP = 10;
+elseif Parametric == 4
+    PP = 11;
 end
 
 %%
