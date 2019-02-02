@@ -1,14 +1,14 @@
 %% Housekeeping
-clear all
+clear all, close all
 clc
 %% Parameters
 
-Peak_Tolerance = 0.03;
+Peak_Tolerance = 0.02;
 Time_Tolerance = 950;
 Highlight_Peaks = 1;
 Show_Graph = 1;
 Parametric = 3;
-Initial_Cycle = 111651;
+Initial_Cycle = 92800;
 
 %% Processing
 PP=0;
@@ -74,6 +74,8 @@ plot(X_axis,Y_axis,'-b');
  Cycle_Array = [Initial_Cycle:(End_Cycle-1)];
  FileSet=FileSet(locs);
  P_data = [P_data,Cycle_Array',FileSet];
+ 
+ hold off
  
  %% Cleaning
  
